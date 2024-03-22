@@ -11,6 +11,7 @@ import Home from './components/Home/Home.jsx';
 import AboutPage from './components/About/About.jsx';
 import ContactPage from './components/Contact/Contact.jsx';
 import AddUser from './components/AddUser/AddUser.jsx';
+import Users from './components/Users/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     {
       path:'/adduser',
     element:<AddUser></AddUser>
+  },
+  {
+    path:'/users',
+    element:<Users></Users>,
+    loader: ()=> fetch('http://localhost:5000/users')
   }
    ]
   }
