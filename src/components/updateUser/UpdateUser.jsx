@@ -5,7 +5,19 @@ const UpdateUser = () => {
       event.preventDefault();
       const name = event.target.name.value;
       const email = event.target.email.value;
-      console.log(name, email);
+      const newUpdateUser = {name, email};
+      console.log(newUpdateUser);
+      fetch(`http://localhost:5000/users/${loadedUser._id}`, {
+        method:'PUT',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(newUpdateUser)
+      })
+      .then(res => res.json())
+      .then( data => {
+        console.log(data);
+      })
     }
   return (
     <div>
